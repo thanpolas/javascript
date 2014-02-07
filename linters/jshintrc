@@ -1,3 +1,11 @@
+/**
+ * Project specific jshint linting options.
+ *
+ * Forked of Airbnb JSHint settings.
+ *
+ * @version 0.3.1
+ * @see     http://www.jshint.com/docs/
+ */
 {
   /*
    * ENVIRONMENTS
@@ -5,10 +13,10 @@
    */
 
   // Define globals exposed by modern browsers.
-  "browser": true,
+  "browser": false,
 
   // Define globals exposed by jQuery.
-  "jquery": true,
+  "jquery": false,
 
   // Define globals exposed by Node.js.
   "node": true,
@@ -49,9 +57,24 @@
   // Warn when variables are defined but never used.
   "unused": true,
 
-  // Enforce line length to 80 characters
-  "maxlen": 80,
+  // do not complain for lack of 'use strict';
+  "globalstrict": false,
+  "strict": false,
 
-  // Enforce placing 'use strict' at the top function scope
-  "strict": true
+  // suppress object dot notation warnings, we know what we're doing
+  "sub": true,
+
+
+  /**
+   * PROJECT GLOBALS
+   * ================
+   *
+   */
+  "predef": [
+    "setup",
+    "teardown",
+    "test",
+    "suite",
+    "assert"
+  ]
 }
