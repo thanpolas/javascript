@@ -97,6 +97,7 @@
     "suite": false,
     "describe": false,
     "test": false,
+    "it": false,
     "setup": false,
     "before": false,
     "beforeEach": false,
