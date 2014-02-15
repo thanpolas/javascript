@@ -3,7 +3,7 @@
  *
  * Forked from Airbnb JSHint settings.
  *
- * @version 0.4.1
+ * @version 0.4.2
  * @see http://www.jshint.com/docs/
  * @see https://github.com/airbnb/javascript
  */
@@ -95,6 +95,7 @@
   "globals": {
     /* MOCHA */
     "suite": false,
+    "describe": false,
     "test": false,
     "setup": false,
     "before": false,
