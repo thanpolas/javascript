@@ -3,8 +3,8 @@
  *
  * Forked from Airbnb JSHint settings.
  *
- * @version 0.4.3
- * @source 
+ * @version 0.4.4
+ * @source https://github.com/thanpolas/javascript/blob/master/.jshintrc
  * @see http://www.jshint.com/docs/
  * @see https://github.com/airbnb/javascript * Forked of Airbnb JSHint settings.
  */
