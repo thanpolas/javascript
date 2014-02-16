@@ -3,9 +3,10 @@
  *
  * Forked from Airbnb JSHint settings.
  *
- * @version 0.4.2
+ * @version 0.4.3
+ * @source 
  * @see http://www.jshint.com/docs/
- * @see https://github.com/airbnb/javascript
+ * @see https://github.com/airbnb/javascript * Forked of Airbnb JSHint settings.
  */
 {
   /*
@@ -65,11 +66,17 @@
   // Suppress warnings about == null comparisons.
   "eqnull": true,
 
+  // Enforce tab width of 2 spaces.
+  "indent": 2,
+
   // Prohibit use of a variable before it is defined.
   "latedef": true,
 
   // Require capitalized names for constructor functions.
   "newcap": true,
+
+  // Enforce use of single quotation marks for strings.
+  "quotmark": "single",
 
   // Prohibit trailing whitespace.
   "trailing": true,
@@ -88,6 +95,14 @@
   "sub": true,
 
   /**
+   * TEMPORARY OPTIONS
+   * =================
+   *
+   * These are provisional options for legacy code.
+   *
+   */
+
+  /**
    * PROJECT GLOBALS
    * ================
    *
@@ -95,8 +110,8 @@
   "globals": {
     /* MOCHA */
     "suite": false,
-    "describe": false,
     "test": false,
+    "describe": false,
     "it": false,
     "setup": false,
     "before": false,
