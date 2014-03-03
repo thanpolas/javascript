@@ -47,8 +47,8 @@
     + `undefined`
 
     ```javascript
-    var foo = 1,
-        bar = foo;
+    var foo = 1;
+    var bar = foo;
 
     bar = 9;
 
@@ -61,8 +61,8 @@
     + `function`
 
     ```javascript
-    var foo = [1, 2],
-        bar = foo;
+    var foo = [1, 2];
+    var bar = foo;
 
     bar[0] = 9;
 
@@ -147,9 +147,9 @@
   - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    var len = items.length,
-        itemsCopy = [],
-        i;
+    var len = items.length;
+    var itemsCopy = [];
+    var i;
 
     // bad
     for (i = 0; i < len; i++) {
@@ -218,10 +218,10 @@
   - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items,
-        messages,
-        length,
-        i;
+    var items;
+    var messages;
+    var length;
+    var i;
 
     messages = [{
       state: 'success',
@@ -368,40 +368,19 @@
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Use multiple `var` declarations for multiple variables and declare each variable on a newline.
 
     ```javascript
     // bad
+    var items = getItems(),
+        goSportsTeam = true,
+        dragonball = 'z';
+
+    // good
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
 
-    // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball = 'z';
-    ```
-
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
-    // bad
-    var i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
-    // bad
-    var i, items = getItems(),
-        dragonball,
-        goSportsTeam = true,
-        len;
-
-    // good
-    var items = getItems(),
-        goSportsTeam = true,
-        dragonball,
-        length,
-        i;
     ```
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
@@ -864,7 +843,7 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Additional trailing comma: **Yeap** for Node.js **Nope** for Browsers, this can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -1286,13 +1265,12 @@
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
   - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - Do not use `'use strict';` at the top of the module!
 
     ```javascript
     // fancyInput/fancyInput.js
 
     !function(global) {
-      'use strict';
 
       var previousFancyInput = global.FancyInput;
 
