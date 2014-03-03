@@ -537,6 +537,16 @@
 ## <a name='conditionals'>Conditional Expressions & Equality</a>
 
   - Use `===` and `!==` over `==` and `!=`.
+  - Always use the testing part first and the expected value second:
+
+    '''javascript
+    // bad
+    if (2 === values.length) {}
+
+    // good
+    if (values.length === 2) {}
+    ```
+
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
