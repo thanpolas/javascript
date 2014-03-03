@@ -36,7 +36,7 @@ For the Node environment the following format of requiring modules is advised:
   1. Require all packages
   1. Require all local modules
 
-Each devised by a new line and if possible order by lower to higher level in the stack.
+Each separated by a new line and if possible order by lower to higher level in the stack.
 
 ```js
 // core modules
@@ -65,7 +65,7 @@ These rules only apply to Node modules. Each module should have the following st
 Lines must not exceed 80 columns in any file. Exceptions are markdown and markup files.
 
 1. The `@fileOverview` tag with a general description about what this module is about.
-1. The module dependencies as described in [Module Dependencies][#modules].
+1. The module dependencies as described in [Module Dependencies](#modules).
 1. Declare anything that is local to the module.
 1. Use only `module.exports` as a way of exporting, before any code. Beyond this point everything is attached to the exported object.
 1. Declare all static properties, functions, constants or enums right after the export statement.
