@@ -132,5 +132,36 @@ User.prototype._hashPassword = function(next) {
 };
 ```
 
+## Optimizations
+
+Random snippets of best practices and performance gains.
+
+#### Do not use .bind()
+
+[Bind's implementation is slow][bind slow], until V8 gets passed that issue use closures:
+
+```js
+
+app.add = function(a, b) {
+
+  // bad
+  asyncFn(function() {
+    this.a = a;
+  }.bind(this));
+
+  // good
+  var self = this;
+  asyncFn(function() {
+    self.a = a;
+  });  
+
+};
+```
+
+#### Use .bind()
+
+You can use `.bind()` during application boot-time for binding methods. Boot-time occurs only once so the performance hit by de-optimized methods and practices is non consequential.
+
 [gdocs]: https://developers.google.com/closure/compiler/docs/js-for-compiler?hl=en#tags
+[bind slow]: http://stackoverflow.com/questions/17638305/why-is-bind-slower-than-a-closure/17638540#17638540
 
